@@ -1,9 +1,7 @@
 'use strict';
 
 const {screenshot} = require('./screenshot.js')
-
 const express = require('express');
-const puppeteer = require('puppeteer');
 const app = express();
 
 app.use(screenshot);
