@@ -20,7 +20,9 @@ exports.screenshot = async (req, res) => {
   browser.close();
 
   try {
-    var filename = url.replace(/^https?:\/\//,'') + "/screenshot.png"
+    var d = new Date();
+    var datestring = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate()
+    var filename = url.replace(/^https?:\/\//,'') + "/" + datestring + ".png"
     let screenshotUrl = await uploadToGoogleCloud(imageBuffer, filename);
     res.status(200).send(JSON.stringify({
       'screenshotUrl': screenshotUrl
